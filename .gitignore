@@ -1,0 +1,12 @@
+*.pyc
+venv
+node_modules
+package-lock.json
+frontend/src/app/settings.ts
+backend/backend/local.py
+doc/_build
+backend/db.sqlite3
+backend/media
+backend/locale
+backend/celerybeat.pid
+.vscode

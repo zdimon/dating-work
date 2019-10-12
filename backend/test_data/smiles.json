@@ -1,0 +1,34 @@
+[
+    {
+        "image": "stupid.png",
+        "alias": "[:stupid:]",
+        "title": "Fun"
+    },
+
+    {
+        "image": "kawaii.png",
+        "alias": "[:kawaii:]",
+        "title": "Sad"
+    },
+
+    {
+        "image": "drugged.png",
+        "alias": "[:drugged:]",
+        "title": "Drugged"
+    },
+    
+    
+    {
+        "image": "drugged.png",
+        "alias": "[:drugged:]",
+        "title": "Drugged"
+    }, 
+
+    {
+        "image": "hug.png",
+        "alias": "[:hug:]",
+        "title": "Hug"
+    } 
+
+
+]
