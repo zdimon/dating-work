@@ -1,0 +1,193 @@
+
+<div *ngIf="is_done" class="alert alert-primary" role="alert">
+       Registration is done!!!
+</div>
+
+<form *ngIf="!is_done"  [formGroup]="form" (ngSubmit)="onSubmit()" class="">
+
+
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_NAME' | translate }}</label>
+        <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_NAME' | translate }}
+        </small>
+    </div>
+
+
+    <div class="form-row">
+            <label>{{ 'TITLE_EMAIL' | translate }}</label>
+            <input
+            formControlName="email"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('email').status === 'INVALID' && !form.get('email').pristine"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_EMAIL' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                {{ 'ERROR_EMAIL' | translate }}
+            </small>
+        </div>
+
+        <div class="form-row">
+                <label>{{ 'TITLE_DATEBIRTH' | translate }}</label>
+                <input type="text"
+                formControlName="birthday"
+                placeholder="Datepicker"
+                class="form-control"
+                [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+                bsDatepicker>
+            </div>
+
+    <div class="form-row">
+        <label>{{ 'TITLE_ABOUT_ME' | translate }}</label>
+        <textarea
+        formControlName="about_me"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="form.get('about_me').status === 'INVALID' && !form.get('about_me').pristine"
+        ></textarea>
+        <small class="form-text text-muted">
+            {{ 'HELP_ABOUT_ME' | translate }}
+        </small>
+        <small class="form-text invalid-feedback">
+            {{ 'ERROR_ABOUT_ME_REQUIRED' | translate }}
+        </small>
+    </div>
+
+
+    <div class="form-row">
+            <label>{{ 'TITLE_LOOKINGFOR' | translate }}</label>
+            <textarea
+            formControlName="lookingfor"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('lookingfor').status === 'INVALID' && !form.get('lookingfor').pristine"
+            ></textarea>
+            <small class="form-text text-muted">
+                {{ 'HELP_LOOKINGFOR' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                {{ 'ERROR_LOOKINGFOR' | translate }}
+            </small>
+    </div>
+
+    <div class="form-row">
+            <label>{{ 'TITLE_JOB' | translate }}</label>
+            <textarea
+            formControlName="job"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('job').status === 'INVALID' && !form.get('job').pristine"
+            ></textarea>
+            <small class="form-text text-muted">
+                {{ 'HELP_JOB' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                {{ 'ERROR_JOB' | translate }}
+            </small>
+    </div>
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_GOAL' | translate }}</label>
+        <textarea
+        formControlName="goal"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="form.get('goal').status === 'INVALID' && !form.get('goal').pristine"
+        ></textarea>
+        <small class="form-text text-muted">
+            {{ 'HELP_GOAL' | translate }}
+        </small>
+        <small class="form-text invalid-feedback">
+            {{ 'ERROR_GOAL' | translate }}
+        </small>
+    </div>
+
+
+
+    <div class="form-row">
+            <label>{{ 'TITLE_CITY' | translate }}</label>
+            <input
+            formControlName="city"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('city').status === 'INVALID' && !form.get('city').pristine"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_CITY' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                    {{ 'ERROR_CITY' | translate }}
+            </small>
+        </div>
+
+
+
+        <div *ngFor="let item of oneFields; let i=index">
+            <label [for]="item.alias" class="array-item-title">
+                        {{item.title}}
+            </label>
+            <select class="form-control" formControlName="{{item.alias}}">
+                <option *ngFor="let opt of item.values" value="{{ opt.value }}">{{ opt.title }}</option>
+            </select>
+        </div>
+
+
+        <div *ngFor="let item of manyFields; let i=index">
+                <label [for]="item.alias" class="array-item-title">
+                            {{item.title}}
+
+                </label>
+                <div *ngFor="let value of form.get(item.alias)['controls']; let i=index">
+
+                    <input type="checkbox" [formControl]="value" [value]="item.values[i].value" />  {{item.values[i].title}}
+                </div>
+            </div>
+
+
+            <div class="form-row my-3">
+
+                    <input
+                    hidden
+                    formControlName="photo"
+                    type="file"
+                    class="form-control"
+                    (change)="onFileChange($event)"
+                    #uploader
+                    />
+                    <a class="btn btn-success" (click)="uploader.click()">
+                        {{ 'BUTTON_ADD_IMAGE' | translate }}
+                   </a>
+
+
+
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mx-2" *ngFor="let im of images; let i = index">
+                  <img [src]="im" width="100px" height="100%" />
+                  <a (click)="deleteImg(i)">{{ 'BUTTON_DELETE_IMAGE' | translate }}</a>
+              </div>
+
+            </div>
+
+
+    <div class="form-row mt-3">
+
+      <button type="submit" [disabled]="!form.valid"  class="btn btn-primary ">
+          {{ 'BUTTON_SUBMIT' | translate }}
+      </button>
+    </div>
+
+</form>
+

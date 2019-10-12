@@ -1,0 +1,36 @@
+<h4>{{ 'TITLE_MY_PHOTO' | translate  }}</h4>
+
+<div class="container">
+
+
+    <video [hidden]="!is_video" width="400" height="300" #hardwareVideo autoplay></video>
+    <canvas [hidden]="is_saved || !is_video" #canvas width="400" height="300"> </canvas>
+    <app-photo-crop *ngIf="editphoto" [photo]="editphoto"></app-photo-crop>
+    <button *ngIf="!is_video" class="btn btn-success mx-3" (click)="getVideo()">
+        {{ 'BUTTON_TURNVIDEO' | translate }}
+    </button>
+
+
+        <button *ngIf="is_video" class="btn btn-danger" (click)="stopStream()">
+          {{'BUTTON_STOPVIDEO' | translate}}
+        </button>
+        <button *ngIf="is_video" class="btn btn-warning" (click)="takePic()">
+            {{ 'BUTTON_TAKEPIC' | translate }}
+        </button>
+        <app-photo-form (photouploaded)= "photoUploaded($event)"></app-photo-form>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+      <app-photo-item
+        *ngFor="let photo of photos"
+        [photo]="photo"
+        (setmain)="doSetMain($event)"
+        (delete)="doDelete($event)"
+        (editphoto)="doEditPhoto($event)"
+      >
+      </app-photo-item>
+    </div>
+</div>

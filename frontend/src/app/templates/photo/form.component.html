@@ -1,0 +1,8 @@
+
+<input
+  style="display: none"
+  type="file"
+  (change)="onFileChanged($event)"
+  name="myFile"
+  #fileInput>
+<button class="btn btn-success" (click)="fileInput.click()">{{'BUTTON_SELECT_FILE' | translate}}</button>

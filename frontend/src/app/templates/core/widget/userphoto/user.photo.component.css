@@ -1,0 +1,23 @@
+.user_photo {
+  border-radius: 50%;
+  width: 60px;
+}
+.user-photo-block {
+  position: relative;
+}
+
+.status {
+  width: 15px;
+  height: 15px;
+  background: green;
+  position: absolute;
+  top: 2px;
+  border-radius: 50%;
+}
+
+.green {
+  background: green;
+}
+.red {
+  background: red;
+}

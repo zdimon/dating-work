@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-sm-6 offset-sm-3">
+            <div class="row float-right my-2">
+                <a style="cursor: pointer;" class="btn btn-success" *ngIf="lang=='en'" (click)="setlang('ru')">
+                  {{ 'TITLE_RUSSIAN' | translate  }}
+                </a>
+                <a style="cursor: pointer;" class="btn btn-success" *ngIf="lang=='ru'" (click)="setlang('en')">
+                    {{ 'TITLE_ENGLISH' | translate  }}
+                </a>
+              </div>
+            <h1 class="display-6">{{ 'TITLE_AGENCY_REGISTRATION' | translate }}</h1>
+            <div class="info-form">
+                 <app-agency-register-form></app-agency-register-form>
+            </div>
+        </div>
+    </div>
+  </div>
+

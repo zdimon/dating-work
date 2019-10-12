@@ -1,0 +1,22 @@
+<div *ngIf="!is_croped">
+<div class="container">
+  <img class="sample" [src]="croppedImage" />
+
+  <button class="btn btn-primary" (click)="cropSave()">Save</button>
+</div>
+
+<div *ngIf="photo">
+  <image-cropper
+  [imageBase64]="base64Image"
+  [cropper]="croperPosition"
+  (cropperReady)="cropperReady()"
+  format="png"
+  (imageCropped)="imageCropped($event)"
+></image-cropper>
+
+
+</div>
+
+</div>
+
+

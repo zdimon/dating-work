@@ -1,0 +1,32 @@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" [routerLink]="['/']">
+        {{ 'TITLE_APP_NAME' | translate }}
+        </a>
+
+        <a class="btn btn-success" *ngIf="lang=='en'" (click)="setlang.emit('ru')">Russian</a>
+        <a class="btn btn-success" *ngIf="lang=='ru'" (click)="setlang.emit('en')">English</a>
+
+
+        <ul class="nav navbar-nav ml-auto">
+                <li><img style="border-radius: 50%; height: 40px " class="img-fluid" src="{{ (user | async)?.main_photo }}" /></li>
+                <li class="nav-item">
+                    <a class="btn btn-success my-2 my-sm-0 mr-1"  routerLinkActive="active" [routerLink]="['profile']"  >
+                        {{ (user | async)?.username }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button (click)="logout.emit($event)" class="btn btn-danger my-2 my-sm-0 mr-1" type="submit">
+                        {{ 'TITLE_LOGOUT' | translate }}
+                    </button>
+                </li>
+                <li class="nav-item" *ngIf="(user | async)?.gender == 'male'">
+                    <app-add-credit></app-add-credit>
+                </li>
+
+            </ul>
+
+
+
+
+    </nav>

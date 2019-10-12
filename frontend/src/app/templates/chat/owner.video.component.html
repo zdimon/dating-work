@@ -1,0 +1,13 @@
+<h4>{{ 'TITLE_CHAT_MY_VIDEO' | translate }}</h4>
+<div class="row">
+  <div class="col-md-12">
+      <video  width="400" height="300" #hardwareVideo autoplay></video>
+
+    <button *ngIf="!is_video" (click)="getMedia($event)" class="btn btn-success btn-sm btn-block">
+       {{'TITLE_CHAT_TURNON_VIDEO' | translate }}
+      </button>
+    <button *ngIf="is_video" (click)="removeMedia($event)" class="btn btn-success btn-sm btn-block">  {{ 'TITLE_CHAT_TURNOFF_VIDEO' | translate }}
+    </button>
+    <button *ngIf="is_video" (click)="makeConnection()" class="btn btn-success btn-sm btn-block">Make connection</button>
+  </div>
+</div>

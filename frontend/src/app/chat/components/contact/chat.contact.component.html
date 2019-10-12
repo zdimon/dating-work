@@ -1,0 +1,16 @@
+<h3>{{ 'TITLE_MY_CONTACTS' | translate  }}</h3>
+
+<div class="container" *ngFor="let room of contacts | sort: 'activity'">
+  <div class="row">
+    <div class="col-md-4">
+       <app-user-photo [user]="room.abonent"></app-user-photo>
+       
+    </div>
+    <div class="col-md-8">
+        <h5 class="card-title">{{ room.abonent.username  }}</h5>
+        <a class="btn btn-success btn-sm" (click)="select.emit(room)">Select</a>
+    </div>
+  </div>
+</div>
+
+

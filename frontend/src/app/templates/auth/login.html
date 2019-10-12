@@ -1,0 +1,56 @@
+<div id="container" class="container">
+        <div class="row">
+            <div class="col-sm-4 offset-sm-4 text-center">
+                <h1 class="display-4">{{ 'TITLE_SIGNIN' | translate }}</h1>
+                <div class="info-form">
+                    <form (submit)="login()" class="form-inlin justify-content-center">
+                        <div class="form-group">
+                            <label>{{ 'TITLE_LOGIN' | translate }}</label>
+                            <input [(ngModel)]="user.username" name="username" type="text" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label>{{ 'TITLE_PASSWORD' | translate }}</label>
+                            <input name="password" [(ngModel)]="user.password" type="text" class="form-control" placeholder="jane.doe@example.com">
+                        </div>
+                        <button type="submit" class="btn btn-success ">{{ 'TITLE_LOGIN_BUTTON' | translate }}</button>
+                    </form>
+                </div>
+                <br>
+
+                <a [routerLink]="['/registration/man']" class="btn btn-outline-secondary btn-sm my-3 mx-3" role="button">
+                    {{ 'TITLE_MAN_REGISTRATION' | translate }}
+                </a>
+
+                <a [routerLink]="['/registration/woman']" class="btn btn-outline-secondary btn-sm my-3 mx-3" role="button">
+                  {{ 'TITLE_WOMAN_REGISTRATION' | translate }}
+                </a>
+
+                <a [routerLink]="['/registration/agency']" class="btn btn-outline-secondary btn-sm my-3 mx-3" role="button">
+                  {{ 'TITLE_AGENCY_REGISTRATION' | translate }}
+                </a>
+            </div>
+        </div>
+
+
+        <!--    <a class="btn btn-success" [routerLink]="['/registration/man']" >Man registration</a>
+           -->
+
+    <div class="row">
+        <div class="col-md-4"></div>
+       <div class="col-md-2">
+               <p *ngFor="let m of man">
+                   <a class="btn btn-success" (click)="autologin(m)">{{ m.username  }}</a>
+               </p>
+       </div>
+       <div class="col-md-2">
+           <p *ngFor="let w of woman">
+               <a class="btn btn-success" (click)="autologin(w)">{{ w.username  }}</a>
+           </p>
+       </div>
+       <div class="col-md-4"></div>
+    </div>
+
+
+    </div>
+
+

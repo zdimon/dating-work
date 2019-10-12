@@ -1,0 +1,11 @@
+<h3>{{ 'TITLE_USERS_ONLINE' | translate }}</h3>
+
+
+    <div class="container user-online-item"
+    *ngFor="let user of online | async"
+    [user]="user"
+    (call)="doCall($event)"
+    app-user-online-item></div>
+
+
+

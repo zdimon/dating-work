@@ -1,0 +1,15 @@
+
+<th *ngIf="!user.is_edit">{{ user.id  }}</th>
+<td *ngIf="!user.is_edit">{{ user.username  }}</td>
+<td *ngIf="!user.is_edit">{{ user.email  }}</td>
+<td *ngIf="!user.is_edit">{{ user.is_superuser  }}</td>
+<td *ngIf="!user.is_edit"><button class="btn btn-success" (click)="edit.emit(user)">Edit</button></td>
+
+<th *ngIf="user.is_edit">{{ user.id  }}</th>
+<td *ngIf="user.is_edit"><input type="text" name="username" [(ngModel)] = "user.username" /></td>
+<td *ngIf="user.is_edit"><input type="text"  name="email" [(ngModel)] = "user.email" /></td>
+<td *ngIf="user.is_edit"><input type="checkbox"  name="username" [(ngModel)] = "user.is_superuser" /></td>
+<td *ngIf="user.is_edit">
+    <button class="btn btn-success" (click)="save.emit(user)">Save</button>
+    <button class="btn btn-success" (click)="cancel.emit(user)">Cancel</button>
+</td>

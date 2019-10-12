@@ -1,0 +1,13 @@
+h3 {
+  font-size: 14px;
+}
+
+.user-main-photo {
+  border-radius: 50%;
+  width: 60px;
+}
+
+.chat-messages {
+  height: 500px;
+  overflow: auto;
+}

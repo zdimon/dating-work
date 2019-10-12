@@ -1,0 +1,20 @@
+<div class="container">
+    <app-base-header 
+    [lang]="lang"
+    [user]="user"
+    (setlang)="doSetLang($event)"
+    (logout)="doLogout($event)"
+    ></app-base-header>
+</div>
+
+<div class="container">
+    <div class="row mt-1">
+        <div class="col-md-2">
+            <app-base-menu></app-base-menu>
+        </div>
+        <div class="col-md-10">
+            <router-outlet></router-outlet>
+        </div>    
+    </div>
+
+</div>

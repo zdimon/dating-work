@@ -1,0 +1,19 @@
+<h3>{{ 'TITLE_CHAT_NAME' | translate }}</h3>
+
+<div class="row">
+  <div class="col-md-3">
+    <app-chat-online (call)="doCall($event)" [online]="online"></app-chat-online>
+  </div>
+  <div class="col-md-7">
+    <app-chat-room
+    [room]="current_room"
+    [current_user]="current_user"
+    (sendmessage)="doSendMessage($event)">
+  </app-chat-room>
+  </div>
+  <div class="col-md-2">
+    <div class="row">
+      <app-chat-contact [contacts]="rooms" (select)="selectRoom($event)"></app-chat-contact>
+    </div>
+  </div>
+</div>

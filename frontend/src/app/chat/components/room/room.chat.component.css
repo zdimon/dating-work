@@ -1,0 +1,9 @@
+.chat-messages {
+  max-height: 400px;
+  overflow: auto;
+}
+.smiles li{
+  display: inline;
+  list-style: none;
+  padding: 5px;
+}

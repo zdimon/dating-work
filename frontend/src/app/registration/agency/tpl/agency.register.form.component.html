@@ -1,0 +1,230 @@
+
+<div *ngIf="is_done" class="alert alert-primary" role="alert">
+       Registration is done!!!
+</div>
+
+<form *ngIf="!is_done"  [formGroup]="form" (ngSubmit)="onSubmit()" class="">
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_EMAIL' | translate }}</label>
+        <input
+        formControlName="email"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="form.get('email').status === 'INVALID' && !form.get('email').pristine"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_EMAIL' | translate }}
+        </small>
+        <small class="form-text invalid-feedback">
+            {{ 'ERROR_EMAIL' | translate }}
+        </small>
+    </div>
+
+    <div class="form-row">
+        <label>{{ 'TITLE_NAME' | translate }}</label>
+        <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_NAME' | translate }}
+        </small>
+    </div>
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_NAME_BOSS' | translate }}</label>
+        <input
+        formControlName="name_boss"
+        type="text"
+        class="form-control"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_NAME_BOSS' | translate }}
+        </small>
+    </div>
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_LOGIN' | translate }}</label>
+        <input
+        formControlName="login"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="form.get('login').status === 'INVALID' && !form.get('login').pristine"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_LOGIN' | translate }}
+        </small>
+        <small class="form-text invalid-feedback">
+            {{ 'ERROR_LOGIN' | translate }}
+        </small>
+    </div>
+
+
+    <div class="form-row">
+            <label>{{ 'TITLE_PASSWORD' | translate }}</label>
+            <input
+            formControlName="password"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('password').status === 'INVALID' && !form.get('password').pristine"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_PASSWORD' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                {{ 'ERROR_PASSWORD' | translate }}
+            </small>
+    </div>
+
+    <div class="form-row">
+            <label>{{ 'TITLE_ADDRESS' | translate }}</label>
+            <input
+            formControlName="address"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('address').status === 'INVALID' && !form.get('address').pristine"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_ADDRESS' | translate }}
+            </small>
+            <small class="form-text invalid-feedback">
+                {{ 'ERROR_ADDRESS' | translate }}
+            </small>
+    </div>
+
+
+    <div class="form-row">
+        <label>{{ 'TITLE_CITY' | translate }}</label>
+        <input
+        formControlName="city"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="form.get('city').status === 'INVALID' && !form.get('city').pristine"
+        />
+        <small class="form-text text-muted">
+            {{ 'HELP_CITY' | translate }}
+        </small>
+        <small class="form-text invalid-feedback">
+            {{ 'ERROR_CITY' | translate }}
+        </small>
+    </div>
+
+
+
+    <div class="form-row">
+            <label>{{ 'TITLE_COUNTRY' | translate }}</label>
+            <input
+            formControlName="country"
+            type="text"
+            class="form-control"
+            [class.is-invalid]="form.get('country').status === 'INVALID' && !form.get('country').pristine"
+            />
+
+            <small class="form-text invalid-feedback">
+                    {{ 'ERROR_COUNTRY' | translate }}
+            </small>
+        </div>
+
+
+        <div class="form-row">
+            <label>{{ 'TITLE_SKYPE' | translate }}</label>
+            <input
+            formControlName="skype"
+            type="text"
+            class="form-control"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_SKYPE' | translate }}
+            </small>
+        </div>
+
+        <div class="form-row">
+            <label>{{ 'TITLE_PHONE1' | translate }}</label>
+            <input
+            formControlName="phone1"
+            type="text"
+            class="form-control"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_PHONE1' | translate }}
+            </small>
+        </div>
+
+        <div class="form-row">
+            <label>{{ 'TITLE_PHONE2' | translate }}</label>
+            <input
+            formControlName="phone2"
+            type="text"
+            class="form-control"
+            />
+            <small class="form-text text-muted">
+                {{ 'HELP_PHONE2' | translate }}
+            </small>
+        </div>
+
+        <div class="form-row">
+            <label>{{ 'TITLE_COUNT_WOMAN' | translate }}</label>
+            <input
+            formControlName="count_woman"
+            type="text"
+            class="form-control"
+            />
+        </div>
+
+
+        <div class="form-row">
+            <label>{{ 'TITLE_WORKING_TIME' | translate }}</label>
+            <input
+            formControlName="working_time"
+            type="text"
+            class="form-control"
+            />
+        </div>
+
+
+            <div class="form-row my-3">
+
+                    <input
+                    hidden
+                    formControlName="photo"
+                    type="file"
+                    class="form-control"
+                    (change)="onFileChange($event)"
+                    #uploader
+                    />
+                    <a class="btn btn-success" (click)="uploader.click()">
+                        {{ 'BUTTON_ADD_IMAGE' | translate }}
+                   </a>
+                   <small class="form-text text-muted">
+                      {{ 'HELP_ADD_IMAGE_AGENCY' | translate }}
+                  </small>
+
+
+
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mx-2" *ngFor="let im of images; let i = index">
+                  <img [src]="im" width="100px" height="100%" />
+                  <a (click)="deleteImg(i)">
+                      {{ 'BUTTON_DELETE_IMAGE' | translate }}
+                  </a>
+              </div>
+
+            </div>
+
+
+    <div class="form-row mt-3">
+
+      <button type="submit" [disabled]="!form.valid"  class="btn btn-primary ">
+          {{ 'BUTTON_AGENCY_SUBMIT' | translate }}
+      </button>
+    </div>
+
+</form>
+

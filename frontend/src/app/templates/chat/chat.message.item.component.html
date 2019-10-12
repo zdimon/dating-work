@@ -1,0 +1,13 @@
+
+<div class="row">
+  <div class="col-md-2">
+      <app-user-photo [user]="message.author"></app-user-photo>
+     <p>{{ message.author.username  }}</p>
+  </div>
+  <div class="col-md-7" [innerHTML]="message.message">
+
+  </div>
+  <div class="col-md-3">
+    <p>  {{ message.created  | date:'shortTime' }}  </p>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+
+<div class="user-photo-block">
+    <img [src]="user.main_photo" class="user_photo"/>
+    <div class="status" [ngClass]="{'green': user.is_online, 'red': !user.is_online }"></div>
+</div>
+

@@ -1,0 +1,24 @@
+<form *ngIf="!is_registered" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-inlin justify-content-center">
+    <div class="form-group">
+        <label class="sr-only">Email</label>
+        <input formControlName="email" type="text" class="form-control" placeholder="jane.doe@example.com">
+    </div>
+    <div *ngIf="loginForm.get('email').status === 'PENDING'">
+        Checking...
+      </div>
+      <div *ngIf="loginForm.get('email').status === 'VALID'">
+        😺 Email is available!
+      </div>
+      <div *ngIf="loginForm.get('email').status === 'INVALID' && !loginForm.get('email').pristine">
+        Invalid email.
+      </div>
+
+      <div *ngIf="loginForm.get('email').errors && loginForm.get('email').errors.isExists">
+        😢 Oh noes, this email is already taken!
+      </div>
+    <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success ">Submit</button>
+</form>
+
+<div *ngIf="is_registered" class="alert alert-primary" role="alert">
+    You are succesfuly registered! We sent the password to this email: {{  email }}!
+</div>

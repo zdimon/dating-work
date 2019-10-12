@@ -1,0 +1,22 @@
+<h2 *ngIf="users">User list</h2>
+<app-user-inline-form></app-user-inline-form>
+<!--<pagination *ngIf="users" [totalItems]="users.count-10" [(ngModel)]="currentPage" (pageChanged)="getPage($event.page)" [maxSize]="10" ></pagination>-->
+<table class="table" *ngIf="users">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">username</th>
+      <th scope="col">email</th>
+      <th scope="col">Is superuser</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.results" [user]="user"
+    (edit)="doEdit($event)"
+    (save)="doSave($event)"
+    (cancel)="doCancel($event)"
+    app-user-list-item></tr>
+  </tbody>
+</table>
+

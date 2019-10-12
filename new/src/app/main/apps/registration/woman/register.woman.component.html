@@ -1,0 +1,171 @@
+<div id="register" fxLayout="column">
+
+    <div id="register-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+        <div id="register-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+            <div class="logo">
+                <img src="assets/images/logos/logo.jpg">
+            </div>
+
+            <div class="title">CREATE A WOMAN ACCOUNT</div>
+
+              
+
+            <div *ngIf="is_registered" class="alert alert-primary" role="alert">
+                    Registration is done!!!
+            </div>
+            
+            <form *ngIf="!is_registered" name="form" [formGroup]="form" novalidate>
+
+               
+
+                <mat-form-field appearance="outline">
+                        <mat-label>{{ 'TITLE_NAME' | translate }}</mat-label>
+                        <input type="text" matInput formControlName="name" />
+                        <mat-hint>
+                            {{ 'HELP_NAME' | translate }}
+                        </mat-hint>                    
+                        <mat-error *ngIf="form.get('name').hasError('required')">
+                            {{ 'ERROR_NAME' | translate }}
+                        </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_EMAIL' | translate }}</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                    <mat-error *ngIf="form.get('email').hasError('required')">
+                        Email is required
+                    </mat-error>
+                    <mat-error *ngIf="form.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-hint *ngIf="form.get('email').status === 'PENDING'">
+                    Checking...
+                    </mat-hint>
+                    <mat-hint *ngIf="form.get('email').status === 'VALID'">
+                    😺 Email is available!
+                    </mat-hint>
+                    
+            
+                    <mat-error *ngIf="form.get('email').hasError('isExists')">
+                    😢 Oh noes, this email is already taken!
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_DATEBIRTH' | translate }}</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthday">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_ABOUT_ME' | translate }}</mat-label>
+                    <textarea matInput formControlName="about_me"></textarea>
+                    <mat-hint>
+                        {{ 'HELP_ABOUT_ME' | translate }}
+                    </mat-hint>                    
+                    <mat-error *ngIf="form.get('about_me').hasError('required')">
+                        {{ 'ERROR_ABOUT_ME_REQUIRED' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_LOOKINGFOR' | translate }}</mat-label>
+                    <textarea matInput formControlName="lookingfor"></textarea>
+                    <mat-hint>
+                        {{ 'HELP_LOOKINGFOR' | translate }}
+                    </mat-hint>                    
+                    <mat-error *ngIf="form.get('lookingfor').hasError('required')">
+                        {{ 'ERROR_LOOKINGFOR' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_JOB' | translate }}</mat-label>
+                    <textarea matInput formControlName="job"></textarea>
+                    <mat-hint>
+                        {{ 'HELP_JOB' | translate }}
+                    </mat-hint>                    
+                    <mat-error *ngIf="form.get('job').hasError('required')">
+                        {{ 'ERROR_JOB' | translate }}
+                    </mat-error>
+                </mat-form-field>             
+                
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_GOAL' | translate }}</mat-label>
+                    <textarea matInput formControlName="goal"></textarea>
+                    <mat-hint>
+                        {{ 'HELP_GOAL' | translate }}
+                    </mat-hint>                    
+                    <mat-error *ngIf="form.get('goal').hasError('required')">
+                        {{ 'ERROR_GOAL' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" *ngFor="let item of oneFields; let i=index">
+                    <mat-label>{{item.title}}</mat-label>
+                    <mat-select formControlName="{{item.alias}}">
+                        <mat-option *ngFor="let opt of item.values" [value]="opt.value">
+                            {{ opt.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>{{ 'TITLE_CITY' | translate }}</mat-label>
+                    <input type="text" matInput formControlName="city" />
+                    <mat-hint>
+                        {{ 'HELP_CITY' | translate }}
+                    </mat-hint>                    
+                    <mat-error *ngIf="form.get('city').hasError('required')">
+                        {{ 'ERROR_CITY' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="row">
+                    <input
+                    hidden
+                    formControlName="photo"
+                    type="file"
+                    class="form-control"
+                    (change)="onFileChange($event)"
+                    #uploader
+                    />
+                    <a mat-raised-button color="accent" (click)="uploader.click()">
+                        {{ 'BUTTON_ADD_IMAGE' | translate }}
+                    </a>
+                    <div class="col-md-4 mx-2" *ngFor="let im of images; let i = index">
+                        <img [src]="im" width="100px" height="100%" />
+                        <button mat-raised-button color="warn" (click)="deleteImg(i)">{{ 'BUTTON_DELETE_IMAGE' | translate }}</button>
+                    </div>
+                </div>
+
+
+                <button (click)="onSubmit()" mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
+                        [disabled]="form.invalid">
+                    CREATE AN ACCOUNT
+                </button>
+
+            </form>
+           
+
+            <div class="register" fxLayout="column" fxLayoutAlign="center center">
+                <span class="text">Already have an account?</span>
+                <a class="link" [routerLink]="'/pages/auth/login'">Login</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

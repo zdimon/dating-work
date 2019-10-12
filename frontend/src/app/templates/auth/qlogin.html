@@ -1,0 +1,11 @@
+<form class="form-inline my-2 my-lg-0" (submit)="login()" *ngIf="!is_auth">
+  <input [(ngModel)]="user.username" name="username" class="form-control mr-sm-2" type="text" placeholder="Login">
+  <input name="password" [(ngModel)]="user.password" class="form-control mr-sm-2" type="password" placeholder="Password">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SignIn</button>
+</form>
+<div class="my-2 my-lg-0 btn-group" *ngIf="is_auth">
+  <a class="btn btn-success my-2 my-sm-0"  routerLinkActive="active" [routerLink]="['profile']"  >{{ username | async }}</a>
+  <a class="nav-link" class="btn btn-success my-2 my-sm-0" routerLinkActive="active" [routerLink]="['chat']" >Chat</a>
+  <a class="btn btn-success my-2 my-sm-0" href="{{ domain  }}/admin" target=_blank>Django admin</a>
+  <button (click)="logout()" class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="container my-3" *ngIf="user">
+
+  <div class="row">
+    <div class="col-md-3">
+      <img [src]="user.user.middle_photo" />
+    </div>
+    <div class="col-md-9">
+        <h3>{{ user.user.username }}</h3>
+        <ul>
+          <li *ngFor="let p of user.props"> {{ p.name }}: {{ p.value }}</li>
+        </ul>
+
+    </div>  
+  </div>
+  <h3>{{  'TITLE_GALLERY' | translate }}</h3>
+  <div class="row">
+    
+    <div class="col-md-4" *ngFor="let g of user.gallery">
+        <img [src]="g.image" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<button type="button" class="btn btn-primary mr-1" (click)="openModal()">{{ 'TITLE_ADD_CREDITS' | translate }} ({{ account|async  }})</button>
+
+<ng-template #template>
+  <div class="modal-header">
+
+    <h4 class="modal-title pull-left">{{ 'TITLE_ADD_CREDITS' | translate }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+  </div>
+  <div class="modal-body">
+      <form class="form-inline">
+          <div class="form-group mb-2">
+              <label>{{ 'TITLE_AMMOUNT' | translate }}</label>
+          </div>
+            <div class="form-group mx-sm-3 mb-2">
+
+                <input class="form-control"  type="text" name="credits" [(ngModel)]="credits"/>
+            </div>
+            <button class="btn btn-success" (click)="add()">{{ 'TITLE_ADD' | translate }}</button>
+      </form>
+
+      <div class="row my-3" *ngFor="let i of billing">
+        <div class="col-md-2" >
+          {{ i.name }}
+        </div>
+        <div class="col-md-2" >
+          {{ i.dollar }}
+        </div>
+        <div class="col-md-2" >
+          {{ i.credit }}
+        </div>
+        <div class="col-md-6" >
+           <button class="btn btn-primary" (click)="replanish(i)">
+             {{ 'BUTTON_REPLANISH' | translate  }}
+          </button>
+        </div>
+      </div>
+  </div>
+</ng-template>

@@ -1,0 +1,20 @@
+
+<div class="row">
+  <div class="col-md-3 image-block">
+        <img src="{{ user.main_photo  }}" class="user-main-image">
+  </div>
+  <div class="col-md-9">
+        <p>{{ user.username  }}</p>
+        <p><a (click)="call.emit(user)" class="btn btn-primary btn-sm btn-block">
+          {{ 'BUTTON_CALL' | translate  }}
+        </a></p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
