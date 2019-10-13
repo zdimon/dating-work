@@ -1,0 +1,11 @@
+. ./venv/bin/activate
+cd backend
+rm db.sqlite3
+./manage.py migrate
+./manage.py load_users
+./manage.py load_photo
+./manage.py load_payment
+./manage.py load_props
+./manage.py load_messages
+./manage.py load_settings
+./manage.py load_agency

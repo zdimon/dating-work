@@ -1,0 +1,6 @@
+. ./venv/bin/activate
+cd backend
+./manage.py makemessages --locale ru 
+./manage.py makemessages --locale en
+./manage.py compilemessages --locale ru 
+./manage.py compilemessages --locale en

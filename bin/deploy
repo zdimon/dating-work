@@ -1,0 +1,2 @@
+gitc
+ssh webmaster@dating-test.webmonstr.com 'cd dating-club; git pull; ./bin/build; . ./venv/activate; ./manage.py load_users'

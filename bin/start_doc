@@ -1,0 +1,5 @@
+. ./venv/bin/activate
+cd docs
+make html
+cd _build/html
+python -m http.server 8086
