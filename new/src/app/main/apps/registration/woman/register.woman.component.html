@@ -10,22 +10,22 @@
 
             <div class="title">CREATE A WOMAN ACCOUNT</div>
 
-              
+
 
             <div *ngIf="is_registered" class="alert alert-primary" role="alert">
                     Registration is done!!!
             </div>
-            
+
             <form *ngIf="!is_registered" name="form" [formGroup]="form" novalidate>
 
-               
+
 
                 <mat-form-field appearance="outline">
                         <mat-label>{{ 'TITLE_NAME' | translate }}</mat-label>
                         <input type="text" matInput formControlName="name" />
                         <mat-hint>
                             {{ 'HELP_NAME' | translate }}
-                        </mat-hint>                    
+                        </mat-hint>
                         <mat-error *ngIf="form.get('name').hasError('required')">
                             {{ 'ERROR_NAME' | translate }}
                         </mat-error>
@@ -47,8 +47,8 @@
                     <mat-hint *ngIf="form.get('email').status === 'VALID'">
                     😺 Email is available!
                     </mat-hint>
-                    
-            
+
+
                     <mat-error *ngIf="form.get('email').hasError('isExists')">
                     😢 Oh noes, this email is already taken!
                     </mat-error>
@@ -72,7 +72,7 @@
                     <textarea matInput formControlName="about_me"></textarea>
                     <mat-hint>
                         {{ 'HELP_ABOUT_ME' | translate }}
-                    </mat-hint>                    
+                    </mat-hint>
                     <mat-error *ngIf="form.get('about_me').hasError('required')">
                         {{ 'ERROR_ABOUT_ME_REQUIRED' | translate }}
                     </mat-error>
@@ -83,7 +83,7 @@
                     <textarea matInput formControlName="lookingfor"></textarea>
                     <mat-hint>
                         {{ 'HELP_LOOKINGFOR' | translate }}
-                    </mat-hint>                    
+                    </mat-hint>
                     <mat-error *ngIf="form.get('lookingfor').hasError('required')">
                         {{ 'ERROR_LOOKINGFOR' | translate }}
                     </mat-error>
@@ -94,19 +94,19 @@
                     <textarea matInput formControlName="job"></textarea>
                     <mat-hint>
                         {{ 'HELP_JOB' | translate }}
-                    </mat-hint>                    
+                    </mat-hint>
                     <mat-error *ngIf="form.get('job').hasError('required')">
                         {{ 'ERROR_JOB' | translate }}
                     </mat-error>
-                </mat-form-field>             
-                
+                </mat-form-field>
+
 
                 <mat-form-field appearance="outline">
                     <mat-label>{{ 'TITLE_GOAL' | translate }}</mat-label>
                     <textarea matInput formControlName="goal"></textarea>
                     <mat-hint>
                         {{ 'HELP_GOAL' | translate }}
-                    </mat-hint>                    
+                    </mat-hint>
                     <mat-error *ngIf="form.get('goal').hasError('required')">
                         {{ 'ERROR_GOAL' | translate }}
                     </mat-error>
@@ -126,7 +126,7 @@
                     <input type="text" matInput formControlName="city" />
                     <mat-hint>
                         {{ 'HELP_CITY' | translate }}
-                    </mat-hint>                    
+                    </mat-hint>
                     <mat-error *ngIf="form.get('city').hasError('required')">
                         {{ 'ERROR_CITY' | translate }}
                     </mat-error>
@@ -157,7 +157,7 @@
                 </button>
 
             </form>
-           
+
 
             <div class="register" fxLayout="column" fxLayoutAlign="center center">
                 <span class="text">Already have an account?</span>

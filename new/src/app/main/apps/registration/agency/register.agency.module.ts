@@ -9,30 +9,33 @@ import { MatInputModule } from '@angular/material/input';
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { RegisterAgencyComponent } from './register.agency.component';
+import { RegistrationService } from '../registration.service';
+import { SharedModule } from '../../../../shared.module';
 
 const routes = [
-    {
-        path     : '**',
-        component: RegisterAgencyComponent
-    }
+  {
+    path: '**',
+    component: RegisterAgencyComponent
+  }
 ];
 
 @NgModule({
-    declarations: [
-        RegisterAgencyComponent
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
+  declarations: [
+    RegisterAgencyComponent
+  ],
+  imports: [
+    RouterModule.forChild(routes),
 
-        MatButtonModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
 
-        FuseSharedModule
-    ]
+    FuseSharedModule,
+    SharedModule
+  ],
+  providers: [RegistrationService]
 })
-export class RegisterAgencyModule 
-{
+export class RegisterAgencyModule {
 }
