@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Authorization &#8212; dating  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chat logic" href="chat.html" />
+    <link rel="prev" title="Model" href="model.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="authorization">
+<h1>Authorization<a class="headerlink" href="#authorization" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="angular">
+<h1>Angular<a class="headerlink" href="#angular" title="Permalink to this headline">¶</a></h1>
+<p>Authorization form auth/login/login.component.ts</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">login</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">login_service</span><span class="p">.</span><span class="nx">login</span><span class="p">({</span><span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Service login_service.</p>
+<p>Get token, language from the server by POST request and save it into the local storage.</p>
+<p>Dispatch action LogIn into storage and navigate to /dashboard url.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">login</span><span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">token_service</span><span class="p">.</span><span class="nx">removeToken</span><span class="p">();</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">socket_id</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">token_service</span><span class="p">.</span><span class="nx">getSid</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">app_config</span><span class="p">.</span><span class="nx">APIurl</span><span class="si">}</span><span class="sb">/api-token-auth/`</span><span class="p">,</span><span class="nx">user</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="p">(</span><span class="nx">data</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">token_service</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;token&#39;</span><span class="p">])</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">token_service</span><span class="p">.</span><span class="nx">setLanguage</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">])</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">session_store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">sessionActions</span><span class="p">.</span><span class="nx">LogIn</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">router</span><span class="p">.</span><span class="nx">navigate</span><span class="p">([</span><span class="s1">&#39;/dashboard&#39;</span><span class="p">])</span>
+    <span class="p">},</span>
+    <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_login_emmiter</span><span class="p">.</span><span class="nx">next</span><span class="p">({</span><span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Invalid login or password&#39;</span><span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">errors</span> <span class="o">=</span> <span class="nx">err</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="plantuml">
+<img src="../_images/plantuml-c7e3fb533a7d6e4a9d563f09a23b7a25ca6b7a71.png" alt="Angular -&gt; Django: POST (login, password)
+Angular &lt;- Django: token, language
+Angular -&gt; Store: token, language"/>
+</p>
+</div>
+<div class="section" id="refreshing-or-first-loading-page">
+<h1>Refreshing or first loading page<a class="headerlink" href="#refreshing-or-first-loading-page" title="Permalink to this headline">¶</a></h1>
+<p>Initialization service.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">public</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">app_config</span><span class="p">.</span><span class="nx">APIurl</span><span class="si">}</span><span class="sb">/init`</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="p">(</span><span class="nx">data</span><span class="o">:</span> <span class="nx">any</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">/// set session user</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">session_store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">sessionActions</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+      <span class="c1">// set online users</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">user_state</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="k">new</span> <span class="nx">UpdateUsers</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">users_online</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">token_service</span><span class="p">.</span><span class="nx">removeToken</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-account.views.InitApp">
+<span id="django-view"></span><h1>Django view.<a class="headerlink" href="#module-account.views.InitApp" title="Permalink to this headline">¶</a></h1>
+<p>Initialization request.
+{</p>
+<blockquote>
+<div><p>‘status’: 0, 
+‘message’: ‘Ok’, 
+‘token’: token.key,
+‘languges’: lng,
+‘user’: user_serializer(request.user.userprofile),
+‘users_online’: uo</p>
+</div></blockquote>
+<p>}</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">dating</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Authorization:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#angular">Angular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#refreshing-or-first-loading-page">Refreshing or first loading page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-account.views.InitApp">Django view.</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chat logic:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat logic</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Agency:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="model.html" title="previous chapter">Model</a></li>
+      <li>Next: <a href="chat.html" title="next chapter">Chat logic</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Dima.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/modules/auth.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

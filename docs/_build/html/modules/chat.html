@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chat logic &#8212; dating  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Authorization" href="auth.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="chat-logic">
+<h1>Chat logic<a class="headerlink" href="#chat-logic" title="Permalink to this headline">¶</a></h1>
+<p class="plantuml">
+<img src="../_images/plantuml-d66b52adef64d1ea9ed4a53ef116c20665398ada.png" alt="actor Man
+actor Woman
+collections System
+group First message from Man
+        Man -&gt; System: First message
+        System -&gt; Woman: Create a new contact at the first place
+        System -&gt; Man: Taking credits
+        Woman -&gt; System: Answer
+        System -&gt; Man: Move the contact to the first place
+end
+
+group First message from Woman
+        Woman -&gt; System: First message
+        System -&gt; Man: Create a new contact at the first place
+        Man -&gt; System: Answer
+        System -&gt; Man: Taking credits
+        System -&gt; Man: Move the contact to the first place
+end
+
+group 2 min Man idle
+        System -&gt; Man: Stop taking credits
+end
+
+group Click stop button
+     System -&gt; Man: Stop taking credits
+end
+
+group Send sticker
+     System -&gt; Man: Take credits by sticker price
+end
+
+group Send pic
+     System -&gt; Man: Take credits by pic price
+end
+
+group Camera
+     Woman -&gt; System: Turn the cam on
+     System -&gt; Man: Take credits by cam price
+     Man -&gt; System: Turn the cam on
+     System -&gt; Man: Continue taking credits by the same cam price
+end"/>
+</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">dating</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Authorization:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auth.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#angular">Angular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#refreshing-or-first-loading-page">Refreshing or first loading page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#module-account.views.InitApp">Django view.</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chat logic:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chat logic</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Agency:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="auth.html" title="previous chapter">Authorization</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Dima.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/modules/chat.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

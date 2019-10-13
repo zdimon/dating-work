@@ -1,0 +1,302 @@
+[
+    {
+        "type": "many",
+        "name_ru": "Владение языками",
+        "name_en": "What languages do you speak?",
+        "alias": "language",
+        "options": [
+            {
+                "name_ru": "Русский",
+                "name_en": "Russian" 
+            },
+            {
+                "name_ru": "Английский",
+                "name_en": "English" 
+            },
+            {
+                "name_ru": "Французкий",
+                "name_en": "Franch" 
+            }            
+        ] 
+    },
+
+    {
+        "type": "one",
+        "name_ru": "Цвет волос",
+        "name_en": "Hair color",
+        "alias": "hair_color",
+        "options": [
+            {
+                "name_ru": "Русый",
+                "name_en": "Light brown" 
+            },
+            {
+                "name_ru": "Светлый",
+                "name_en": "Blond" 
+            },
+            {
+                "name_ru": "Каштановый",
+                "name_en": "Сhestnut" 
+            }            
+        ] 
+    },
+
+    {
+        "type": "one",
+        "name_ru": "Цвет глаз",
+        "name_en": "Eye color",
+        "alias": "eye_color",
+        "options": [
+            {
+                "name_ru": "Голубой",
+                "name_en": "Blue" 
+            },
+            {
+                "name_ru": "Черный",
+                "name_en": "Black" 
+            },
+            {
+                "name_ru": "Зеленый",
+                "name_en": "Green" 
+            }            
+        ] 
+    },
+
+    {
+        "type": "one",
+        "name_ru": "Вес",
+        "name_en": "Weight",
+        "alias": "weight",
+        "options": [
+            {
+                "name_ru": "40 кг",
+                "name_en": "40 kg" 
+            },
+            {
+                "name_ru": "50 кг",
+                "name_en": "50 kg" 
+            },
+            {
+                "name_ru": "60 кг",
+                "name_en": "60 kg" 
+            }            
+        ] 
+    },
+
+
+    {
+        "type": "one",
+        "name_ru": "Семейное положение",
+        "name_en": "Marital status",
+        "alias": "marital",
+        "options": [
+            {
+                "name_ru": "Замужем",
+                "name_en": "Married" 
+            },
+            {
+                "name_ru": "Не замужем",
+                "name_en": "Single" 
+            },
+            {
+                "name_ru": "Разведена",
+                "name_en": "Devorsed" 
+            }    
+            ,
+            {
+                "name_ru": "Вдова",
+                "name_en": "Widow" 
+            }         
+        ] 
+    },
+
+    {
+        "type": "one",
+        "name_ru": "Телосложение",
+        "name_en": "Сonstitution",
+        "alias": "constitution",
+        "options": [
+            {
+                "name_ru": "Худой",
+                "name_en": "Thin" 
+            },
+            {
+                "name_ru": "Средний",
+                "name_en": "Middle" 
+            },
+            {
+                "name_ru": "Толстый",
+                "name_en": "Fat" 
+            }    
+                 
+        ] 
+    },
+
+    {
+        "type": "one",
+        "name_ru": "Алкоголь",
+        "name_en": "Alcohol",
+        "alias": "alkohol",
+        "options": [
+            {
+                "name_ru": "Да",
+                "name_en": "Yes" 
+            },
+            {
+                "name_ru": "Нет",
+                "name_en": "No" 
+            },
+            {
+                "name_ru": "Редко",
+                "name_en": "Occationally" 
+            }    
+                 
+        ] 
+    },
+
+    
+    {
+        "type": "one",
+        "name_ru": "Курение",
+        "name_en": "Smoking",
+        "alias": "smoking",
+        "options": [
+            {
+                "name_ru": "Да",
+                "name_en": "Yes" 
+            },
+            {
+                "name_ru": "Нет",
+                "name_en": "No" 
+            },
+            {
+                "name_ru": "Кальян",
+                "name_en": "Hookah" 
+            },
+            {
+                "name_ru": "Редко",
+                "name_en": "Occationally" 
+            }    
+                 
+        ] 
+    },    
+
+
+    {
+        "type": "one",
+        "name_ru": "Дети",
+        "name_en": "Children",
+        "alias": "children",
+        "options": [
+            {
+                "name_ru": "1",
+                "name_en": "1" 
+            },
+            {
+                "name_ru": "2",
+                "name_en": "2" 
+            },
+            {
+                "name_ru": "3",
+                "name_en": "3" 
+            },
+            {
+                "name_ru": "4",
+                "name_en": "4" 
+            }    
+                 
+        ] 
+    },    
+
+
+    {
+        "type": "one",
+        "name_ru": "Рассовая принадлежность",
+        "name_en": "Race",
+        "alias": "race",
+        "options": [
+            {
+                "name_ru": "Белый",
+                "name_en": "White" 
+            },
+            {
+                "name_ru": "Черный",
+                "name_en": "Black" 
+            },
+            {
+                "name_ru": "Желтый",
+                "name_en": "Oriental" 
+            }  
+                 
+        ] 
+    },  
+
+    {
+        "type": "one",
+        "name_ru": "Хобби",
+        "name_en": "Hobby",
+        "alias": "hobby",
+        "options": [
+            {
+                "name_ru": "Музыка",
+                "name_en": "Musik" 
+            },
+            {
+                "name_ru": "Спорт",
+                "name_en": "Sport" 
+            },
+            {
+                "name_ru": "Чтение",
+                "name_en": "Reading" 
+            }  
+                 
+        ] 
+    },  
+
+
+    {
+        "type": "one",
+        "name_ru": "Религия",
+        "name_en": "Religion",
+        "alias": "religion",
+        "options": [
+            {
+                "name_ru": "Хрестьянство",
+                "name_en": "Orthodox" 
+            },
+            {
+                "name_ru": "Мусульманство",
+                "name_en": "Muslim" 
+            },
+            {
+                "name_ru": "Буддизм",
+                "name_en": "Buddizm" 
+            }  
+                 
+        ] 
+    },  
+
+    {
+        "type": "one",
+        "name_ru": "Рост",
+        "name_en": "Height",
+        "alias": "height",
+        "options": [
+            {
+                "name_ru": "80 см",
+                "name_en": "80 sm" 
+            },
+            {
+                "name_ru": "1 м",
+                "name_en": "1 m" 
+            },
+            {
+                "name_ru": "1 м 50 см",
+                "name_en": "1m 50 sm" 
+            }            
+        ] 
+    }
+
+
+
+]

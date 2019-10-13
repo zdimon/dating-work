@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Model &#8212; dating  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Authorization" href="auth.html" />
+    <link rel="prev" title="Views" href="views.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-agency.models">
+<span id="model"></span><h1>Model<a class="headerlink" href="#module-agency.models" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="agency.models.Agency">
+<em class="property">class </em><code class="sig-prename descclassname">agency.models.</code><code class="sig-name descname">Agency</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em>, <em class="sig-param">last_login</em>, <em class="sig-param">is_superuser</em>, <em class="sig-param">username</em>, <em class="sig-param">first_name</em>, <em class="sig-param">last_name</em>, <em class="sig-param">email</em>, <em class="sig-param">is_staff</em>, <em class="sig-param">is_active</em>, <em class="sig-param">date_joined</em>, <em class="sig-param">user_ptr</em>, <em class="sig-param">name</em>, <em class="sig-param">director</em>, <em class="sig-param">login</em>, <em class="sig-param">adress</em>, <em class="sig-param">payment_method</em>, <em class="sig-param">contact_email</em>, <em class="sig-param">skype</em>, <em class="sig-param">other_messanger</em>, <em class="sig-param">country</em>, <em class="sig-param">city</em>, <em class="sig-param">phone1</em>, <em class="sig-param">phone2</em>, <em class="sig-param">term</em>, <em class="sig-param">is_approved</em><span class="sig-paren">)</span><a class="headerlink" href="#agency.models.Agency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>AutoField</em>) – ID</p></li>
+<li><p><strong>password</strong> (<em>CharField</em>) – password</p></li>
+<li><p><strong>last_login</strong> (<em>DateTimeField</em>) – last login</p></li>
+<li><p><strong>is_superuser</strong> (<em>BooleanField</em>) – Designates that this user has all permissions without explicitly assigning them.</p></li>
+<li><p><strong>username</strong> (<em>CharField</em>) – Required. 150 characters or fewer. Letters, digits and &#64;/./+/-/_ only.</p></li>
+<li><p><strong>first_name</strong> (<em>CharField</em>) – first name</p></li>
+<li><p><strong>last_name</strong> (<em>CharField</em>) – last name</p></li>
+<li><p><strong>email</strong> (<em>EmailField</em>) – email address</p></li>
+<li><p><strong>is_staff</strong> (<em>BooleanField</em>) – Designates whether the user can log into this admin site.</p></li>
+<li><p><strong>is_active</strong> (<em>BooleanField</em>) – Designates whether this user should be treated as active. Unselect this instead of deleting accounts.</p></li>
+<li><p><strong>date_joined</strong> (<em>DateTimeField</em>) – date joined</p></li>
+<li><p><strong>user_ptr_id</strong> (<em>OneToOneField</em>) – user ptr</p></li>
+<li><p><strong>name</strong> (<em>CharField</em>) – Name</p></li>
+<li><p><strong>director</strong> (<em>CharField</em>) – Name and Surname of the Boss</p></li>
+<li><p><strong>login</strong> (<em>CharField</em>) – Login</p></li>
+<li><p><strong>adress</strong> (<em>TextField</em>) – Adress</p></li>
+<li><p><strong>payment_method</strong> (<em>CharField</em>) – Language</p></li>
+<li><p><strong>contact_email</strong> (<em>CharField</em>) – Email</p></li>
+<li><p><strong>skype</strong> (<em>CharField</em>) – Email</p></li>
+<li><p><strong>other_messanger</strong> (<em>CharField</em>) – Skype, telegram etc…</p></li>
+<li><p><strong>country</strong> (<em>CharField</em>) – Country</p></li>
+<li><p><strong>city</strong> (<em>CharField</em>) – City</p></li>
+<li><p><strong>phone1</strong> (<em>CharField</em>) – Phone 1</p></li>
+<li><p><strong>phone2</strong> (<em>CharField</em>) – Phone 2</p></li>
+<li><p><strong>term</strong> (<em>CharField</em>) – Term of work</p></li>
+<li><p><strong>is_approved</strong> (<em>BooleanField</em>) – is approved</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="agency.models.Agency.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#agency.models.Agency.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="agency.models.Agency.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#agency.models.Agency.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.PAYMENT_METHODS">
+<code class="sig-name descname">PAYMENT_METHODS</code><em class="property"> = (('pb', 'Privatbank'), ('epay', 'Epay'))</em><a class="headerlink" href="#agency.models.Agency.PAYMENT_METHODS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.adress">
+<code class="sig-name descname">adress</code><a class="headerlink" href="#agency.models.Agency.adress" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.agency">
+<code class="sig-name descname">agency</code><a class="headerlink" href="#agency.models.Agency.agency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.agency2woman_set">
+<code class="sig-name descname">agency2woman_set</code><a class="headerlink" href="#agency.models.Agency.agency2woman_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.agencyfiles_set">
+<code class="sig-name descname">agencyfiles_set</code><a class="headerlink" href="#agency.models.Agency.agencyfiles_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.city">
+<code class="sig-name descname">city</code><a class="headerlink" href="#agency.models.Agency.city" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.contact_email">
+<code class="sig-name descname">contact_email</code><a class="headerlink" href="#agency.models.Agency.contact_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.country">
+<code class="sig-name descname">country</code><a class="headerlink" href="#agency.models.Agency.country" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.director">
+<code class="sig-name descname">director</code><a class="headerlink" href="#agency.models.Agency.director" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agency.models.Agency.get_payment_method_display">
+<code class="sig-name descname">get_payment_method_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: payment_method&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#agency.models.Agency.get_payment_method_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.is_approved">
+<code class="sig-name descname">is_approved</code><a class="headerlink" href="#agency.models.Agency.is_approved" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.login">
+<code class="sig-name descname">login</code><a class="headerlink" href="#agency.models.Agency.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#agency.models.Agency.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.other_messanger">
+<code class="sig-name descname">other_messanger</code><a class="headerlink" href="#agency.models.Agency.other_messanger" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.payment_method">
+<code class="sig-name descname">payment_method</code><a class="headerlink" href="#agency.models.Agency.payment_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.phone1">
+<code class="sig-name descname">phone1</code><a class="headerlink" href="#agency.models.Agency.phone1" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.phone2">
+<code class="sig-name descname">phone2</code><a class="headerlink" href="#agency.models.Agency.phone2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.skype">
+<code class="sig-name descname">skype</code><a class="headerlink" href="#agency.models.Agency.skype" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.term">
+<code class="sig-name descname">term</code><a class="headerlink" href="#agency.models.Agency.term" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.user_ptr">
+<code class="sig-name descname">user_ptr</code><a class="headerlink" href="#agency.models.Agency.user_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency.user_ptr_id">
+<code class="sig-name descname">user_ptr_id</code><a class="headerlink" href="#agency.models.Agency.user_ptr_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="agency.models.Agency2Woman">
+<em class="property">class </em><code class="sig-prename descclassname">agency.models.</code><code class="sig-name descname">Agency2Woman</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">agency</em>, <em class="sig-param">woman</em><span class="sig-paren">)</span><a class="headerlink" href="#agency.models.Agency2Woman" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>AutoField</em>) – ID</p></li>
+<li><p><strong>agency_id</strong> (<em>ForeignKey</em>) – agency</p></li>
+<li><p><strong>woman_id</strong> (<em>ForeignKey</em>) – woman</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="agency.models.Agency2Woman.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#agency.models.Agency2Woman.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="agency.models.Agency2Woman.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#agency.models.Agency2Woman.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="agency.models.Agency2Woman.admin_icon">
+<em class="property">property </em><code class="sig-name descname">admin_icon</code><a class="headerlink" href="#agency.models.Agency2Woman.admin_icon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.agency">
+<code class="sig-name descname">agency</code><a class="headerlink" href="#agency.models.Agency2Woman.agency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.agency_id">
+<code class="sig-name descname">agency_id</code><a class="headerlink" href="#agency.models.Agency2Woman.agency_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#agency.models.Agency2Woman.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#agency.models.Agency2Woman.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.woman">
+<code class="sig-name descname">woman</code><a class="headerlink" href="#agency.models.Agency2Woman.woman" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.Agency2Woman.woman_id">
+<code class="sig-name descname">woman_id</code><a class="headerlink" href="#agency.models.Agency2Woman.woman_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="agency.models.AgencyFiles">
+<em class="property">class </em><code class="sig-prename descclassname">agency.models.</code><code class="sig-name descname">AgencyFiles</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">agency</em>, <em class="sig-param">image</em>, <em class="sig-param">video</em><span class="sig-paren">)</span><a class="headerlink" href="#agency.models.AgencyFiles" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>AutoField</em>) – ID</p></li>
+<li><p><strong>agency_id</strong> (<em>ForeignKey</em>) – agency</p></li>
+<li><p><strong>image</strong> (<em>ImageField</em>) – image</p></li>
+<li><p><strong>video</strong> (<em>FileField</em>) – video</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="agency.models.AgencyFiles.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#agency.models.AgencyFiles.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="agency.models.AgencyFiles.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#agency.models.AgencyFiles.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.agency">
+<code class="sig-name descname">agency</code><a class="headerlink" href="#agency.models.AgencyFiles.agency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.agency_id">
+<code class="sig-name descname">agency_id</code><a class="headerlink" href="#agency.models.AgencyFiles.agency_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#agency.models.AgencyFiles.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.image">
+<code class="sig-name descname">image</code><a class="headerlink" href="#agency.models.AgencyFiles.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#agency.models.AgencyFiles.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="agency.models.AgencyFiles.render_image">
+<em class="property">property </em><code class="sig-name descname">render_image</code><a class="headerlink" href="#agency.models.AgencyFiles.render_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="agency.models.AgencyFiles.video">
+<code class="sig-name descname">video</code><a class="headerlink" href="#agency.models.AgencyFiles.video" title="Permalink to this definition">¶</a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Return a
+FieldFile when accessed so you can write code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">myapp.models</span> <span class="k">import</span> <span class="n">MyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assign a file object on assignment so you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.world&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-account.models"></span><dl class="class">
+<dt id="account.models.ReplenishmentLog">
+<em class="property">class </em><code class="sig-prename descclassname">account.models.</code><code class="sig-name descname">ReplenishmentLog</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">user_profile</em>, <em class="sig-param">creation_date</em>, <em class="sig-param">plan</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.ReplenishmentLog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>AutoField</em>) – ID</p></li>
+<li><p><strong>user_profile_id</strong> (<em>ForeignKey</em>) – user profile</p></li>
+<li><p><strong>creation_date</strong> (<em>DateTimeField</em>) – creation date</p></li>
+<li><p><strong>plan_id</strong> (<em>ForeignKey</em>) – plan</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="account.models.ReplenishmentLog.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#account.models.ReplenishmentLog.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="account.models.ReplenishmentLog.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#account.models.ReplenishmentLog.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.creation_date">
+<code class="sig-name descname">creation_date</code><a class="headerlink" href="#account.models.ReplenishmentLog.creation_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.ReplenishmentLog.get_next_by_creation_date">
+<code class="sig-name descname">get_next_by_creation_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: creation_date&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.ReplenishmentLog.get_next_by_creation_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.ReplenishmentLog.get_previous_by_creation_date">
+<code class="sig-name descname">get_previous_by_creation_date</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: creation_date&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.ReplenishmentLog.get_previous_by_creation_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#account.models.ReplenishmentLog.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#account.models.ReplenishmentLog.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.plan">
+<code class="sig-name descname">plan</code><a class="headerlink" href="#account.models.ReplenishmentLog.plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.plan_id">
+<code class="sig-name descname">plan_id</code><a class="headerlink" href="#account.models.ReplenishmentLog.plan_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.user_profile">
+<code class="sig-name descname">user_profile</code><a class="headerlink" href="#account.models.ReplenishmentLog.user_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.ReplenishmentLog.user_profile_id">
+<code class="sig-name descname">user_profile_id</code><a class="headerlink" href="#account.models.ReplenishmentLog.user_profile_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="account.models.UserProfile">
+<em class="property">class </em><code class="sig-prename descclassname">account.models.</code><code class="sig-name descname">UserProfile</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em>, <em class="sig-param">last_login</em>, <em class="sig-param">is_superuser</em>, <em class="sig-param">username</em>, <em class="sig-param">first_name</em>, <em class="sig-param">last_name</em>, <em class="sig-param">email</em>, <em class="sig-param">is_staff</em>, <em class="sig-param">is_active</em>, <em class="sig-param">date_joined</em>, <em class="sig-param">user_ptr</em>, <em class="sig-param">about_me</em>, <em class="sig-param">language</em>, <em class="sig-param">gender</em>, <em class="sig-param">is_online</em>, <em class="sig-param">account</em>, <em class="sig-param">birthday</em>, <em class="sig-param">lookingfor</em>, <em class="sig-param">goal</em>, <em class="sig-param">job</em>, <em class="sig-param">city</em>, <em class="sig-param">zodiac</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>AutoField</em>) – ID</p></li>
+<li><p><strong>password</strong> (<em>CharField</em>) – password</p></li>
+<li><p><strong>last_login</strong> (<em>DateTimeField</em>) – last login</p></li>
+<li><p><strong>is_superuser</strong> (<em>BooleanField</em>) – Designates that this user has all permissions without explicitly assigning them.</p></li>
+<li><p><strong>username</strong> (<em>CharField</em>) – Required. 150 characters or fewer. Letters, digits and &#64;/./+/-/_ only.</p></li>
+<li><p><strong>first_name</strong> (<em>CharField</em>) – first name</p></li>
+<li><p><strong>last_name</strong> (<em>CharField</em>) – last name</p></li>
+<li><p><strong>email</strong> (<em>EmailField</em>) – email address</p></li>
+<li><p><strong>is_staff</strong> (<em>BooleanField</em>) – Designates whether the user can log into this admin site.</p></li>
+<li><p><strong>is_active</strong> (<em>BooleanField</em>) – Designates whether this user should be treated as active. Unselect this instead of deleting accounts.</p></li>
+<li><p><strong>date_joined</strong> (<em>DateTimeField</em>) – date joined</p></li>
+<li><p><strong>user_ptr_id</strong> (<em>OneToOneField</em>) – user ptr</p></li>
+<li><p><strong>about_me</strong> (<em>TextField</em>) – About me</p></li>
+<li><p><strong>language</strong> (<em>CharField</em>) – Language</p></li>
+<li><p><strong>gender</strong> (<em>CharField</em>) – Gender</p></li>
+<li><p><strong>is_online</strong> (<em>BooleanField</em>) – is online</p></li>
+<li><p><strong>account</strong> (<em>IntegerField</em>) – account</p></li>
+<li><p><strong>birthday</strong> (<em>DateField</em>) – birthday</p></li>
+<li><p><strong>lookingfor</strong> (<em>TextField</em>) – lookingfor</p></li>
+<li><p><strong>goal</strong> (<em>TextField</em>) – goal</p></li>
+<li><p><strong>job</strong> (<em>TextField</em>) – job</p></li>
+<li><p><strong>city</strong> (<em>CharField</em>) – city</p></li>
+<li><p><strong>zodiac</strong> (<em>CharField</em>) – zodiac</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="exception">
+<dt id="account.models.UserProfile.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#account.models.UserProfile.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.GENDER">
+<code class="sig-name descname">GENDER</code><em class="property"> = (('male', 'Man'), ('female', 'Woman'))</em><a class="headerlink" href="#account.models.UserProfile.GENDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="account.models.UserProfile.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#account.models.UserProfile.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.abonent">
+<code class="sig-name descname">abonent</code><a class="headerlink" href="#account.models.UserProfile.abonent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.about_me">
+<code class="sig-name descname">about_me</code><a class="headerlink" href="#account.models.UserProfile.about_me" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.account">
+<code class="sig-name descname">account</code><a class="headerlink" href="#account.models.UserProfile.account" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.admin_icon">
+<em class="property">property </em><code class="sig-name descname">admin_icon</code><a class="headerlink" href="#account.models.UserProfile.admin_icon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.age">
+<em class="property">property </em><code class="sig-name descname">age</code><a class="headerlink" href="#account.models.UserProfile.age" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.agency2woman_set">
+<code class="sig-name descname">agency2woman_set</code><a class="headerlink" href="#account.models.UserProfile.agency2woman_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.birthday">
+<code class="sig-name descname">birthday</code><a class="headerlink" href="#account.models.UserProfile.birthday" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.chatmessage_set">
+<code class="sig-name descname">chatmessage_set</code><a class="headerlink" href="#account.models.UserProfile.chatmessage_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.city">
+<code class="sig-name descname">city</code><a class="headerlink" href="#account.models.UserProfile.city" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.from_user">
+<code class="sig-name descname">from_user</code><a class="headerlink" href="#account.models.UserProfile.from_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.gender">
+<code class="sig-name descname">gender</code><a class="headerlink" href="#account.models.UserProfile.gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_agency">
+<code class="sig-name descname">get_agency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_agency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_gender_display">
+<code class="sig-name descname">get_gender_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: gender&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_gender_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_language_display">
+<code class="sig-name descname">get_language_display</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.CharField: language&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_language_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_next_by_birthday">
+<code class="sig-name descname">get_next_by_birthday</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateField: birthday&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_next_by_birthday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_previous_by_birthday">
+<code class="sig-name descname">get_previous_by_birthday</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateField: birthday&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_previous_by_birthday" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_socket_ids">
+<code class="sig-name descname">get_socket_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_socket_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.get_user_by_name">
+<em class="property">static </em><code class="sig-name descname">get_user_by_name</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.get_user_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.goal">
+<code class="sig-name descname">goal</code><a class="headerlink" href="#account.models.UserProfile.goal" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.is_online">
+<code class="sig-name descname">is_online</code><a class="headerlink" href="#account.models.UserProfile.is_online" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.job">
+<code class="sig-name descname">job</code><a class="headerlink" href="#account.models.UserProfile.job" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.language">
+<code class="sig-name descname">language</code><a class="headerlink" href="#account.models.UserProfile.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.lookingfor">
+<code class="sig-name descname">lookingfor</code><a class="headerlink" href="#account.models.UserProfile.lookingfor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.main_photo">
+<em class="property">property </em><code class="sig-name descname">main_photo</code><a class="headerlink" href="#account.models.UserProfile.main_photo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.middle_photo">
+<em class="property">property </em><code class="sig-name descname">middle_photo</code><a class="headerlink" href="#account.models.UserProfile.middle_photo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.offer_set">
+<code class="sig-name descname">offer_set</code><a class="headerlink" href="#account.models.UserProfile.offer_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.owner">
+<code class="sig-name descname">owner</code><a class="headerlink" href="#account.models.UserProfile.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.payer">
+<code class="sig-name descname">payer</code><a class="headerlink" href="#account.models.UserProfile.payer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.reciver">
+<code class="sig-name descname">reciver</code><a class="headerlink" href="#account.models.UserProfile.reciver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.replenishmentlog_set">
+<code class="sig-name descname">replenishmentlog_set</code><a class="headerlink" href="#account.models.UserProfile.replenishmentlog_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.set_offline">
+<code class="sig-name descname">set_offline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.set_offline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.set_online">
+<code class="sig-name descname">set_online</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#account.models.UserProfile.set_online" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.to_user">
+<code class="sig-name descname">to_user</code><a class="headerlink" href="#account.models.UserProfile.to_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.user_ptr">
+<code class="sig-name descname">user_ptr</code><a class="headerlink" href="#account.models.UserProfile.user_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.user_ptr_id">
+<code class="sig-name descname">user_ptr_id</code><a class="headerlink" href="#account.models.UserProfile.user_ptr_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.userphoto_set">
+<code class="sig-name descname">userphoto_set</code><a class="headerlink" href="#account.models.UserProfile.userphoto_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.value2user_set">
+<code class="sig-name descname">value2user_set</code><a class="headerlink" href="#account.models.UserProfile.value2user_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="account.models.UserProfile.zodiac">
+<code class="sig-name descname">zodiac</code><a class="headerlink" href="#account.models.UserProfile.zodiac" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="account.models.UserProfile.zodiac_icon">
+<em class="property">property </em><code class="sig-name descname">zodiac_icon</code><a class="headerlink" href="#account.models.UserProfile.zodiac_icon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">dating</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Authorization:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="auth.html">Authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#angular">Angular</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#refreshing-or-first-loading-page">Refreshing or first loading page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth.html#module-account.views.InitApp">Django view.</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Chat logic:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">Chat logic</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Agency:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="views.html" title="previous chapter">Views</a></li>
+      <li>Next: <a href="auth.html" title="next chapter">Authorization</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Dima.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/modules/model.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
